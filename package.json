@@ -15,5 +15,8 @@
   "bugs": {
     "url": "https://github.com/wassupandre/node-c/issues"
   },
-  "homepage": "https://github.com/wassupandre/node-c"
+  "homepage": "https://github.com/wassupandre/node-c",
+  "dependencies": {
+    "express": "^4.16.3"
+  }
 }
