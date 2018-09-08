@@ -15,5 +15,28 @@ module.exports = function(){
         .then("infra")
         .into(app)
 
+    app.use(function(req,res,next){
+        console.log('Recurso nao encontrado: ' + req.originalUrl)
+        res.format({
+            html: function () {
+                res.status(404).render('errors/404')
+            },
+            json: function () {
+                res.status(404).send(errors)
+            }
+        })
+    })
+    app.use(function(error,req,res,next){
+        console.log('Erro no middleware')
+        console.error(error)
+        res.format({
+            html: function () {
+                res.status(500).render('errors/500')
+            },
+            json: function () {
+                res.status(500).send(errors)
+            }
+        })
+    })
     return app
 }
